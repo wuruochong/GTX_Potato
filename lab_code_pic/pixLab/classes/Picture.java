@@ -215,6 +215,81 @@ public class Picture extends SimplePicture
           leftPixel.setColor(Color.WHITE);
       }
     }
+	Pixel topPixel = null;
+	Pixel botPixel = null;
+	Color botColor = null;
+	for (int row = 0; row < pixels.length-1; row++)
+    {
+      for (int col = 0; 
+           col < pixels[0].length; col++)
+      {
+        topPixel = pixels[row][col];
+        botPixel = pixels[row+1][col];
+        botColor = botPixel.getColor();
+        if (topPixel.colorDistance(botColor) > 
+            edgeDist)
+          topPixel.setColor(Color.BLACK);
+        else
+          botPixel.setColor(Color.WHITE);
+      }
+    }
+  }
+  
+  public void edgeDetection2(int edgeDist, int slopeDist){
+	Pixel pixel1 = null;
+    Pixel pixel2 = null;
+	Pixel pixel3 = null;
+	double d1, d2;
+    Pixel[][] pixels = this.getPixels2D();
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 1; 
+           col < pixels[0].length-1; col+= 2)
+      {
+        pixel1 = pixels[row][col-1];
+        pixel2 = pixels[row][col];
+        pixel3 = pixels[row][col+1];
+		d1 = pixel2.colorDistance(pixel1.getColor());
+		d2 = pixel2.colorDistance(pixel3.getColor());
+        if ((d1 > edgeDist || d2 > edgeDist)
+			&& Math.abs(d1 - d2) > slopeDist
+			)
+          pixel2.setColor(Color.BLACK);
+        else
+			pixel1.setColor(Color.WHITE);
+      }
+    }
+	for (int row = 1; row < pixels.length-1; row+=2)
+    {
+      for (int col = 0; 
+           col < pixels[0].length; col++)
+      {
+        pixel1 = pixels[row-1][col];
+        pixel2 = pixels[row][col];
+        pixel3 = pixels[row+1][col];
+        d1 = pixel2.colorDistance(pixel1.getColor());
+		d2 = pixel2.colorDistance(pixel3.getColor());
+        if ((d1 > edgeDist || d2 > edgeDist) 
+			&& Math.abs(d1 - d2) > slopeDist
+			)
+          pixel2.setColor(Color.BLACK);
+        else
+			pixel1.setColor(Color.WHITE);
+      }
+    } 
+		//cleanup
+	for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; 
+           col < pixels[0].length; col++)
+      {
+        pixel1 = pixels[row][col];
+        if (!pixel1.getColor().equals(Color.BLACK) &&
+		!pixel1.getColor().equals(Color.WHITE))
+		pixel1.setColor(Color.WHITE);
+      }
+    }
+	 
   }
   
   
