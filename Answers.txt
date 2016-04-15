@@ -17,7 +17,15 @@ A3
 5. top to bottom
 6. left to right
 7. Yes
-A4
+
+A5
+1. There are calls for the method, but it is not defined
+2. It is defined
+3. It will not compile
+4. Yes
+5. Yes
+6. Yes
+7. No
 
 A7
 1. 10 * 9 = 90
