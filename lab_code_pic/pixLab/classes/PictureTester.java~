@@ -50,35 +50,7 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
-
-    public static void testKeepOnlyBlue(){
-	Picture swan = new Picture("swan.jpg");
-	swan.keepOnlyBlue();
-	swan.explore();
-    }
-
-    public static void testNegate(){
-	Picture swan = new Picture("swan.jpg");
-	swan.negate();
-	swan.explore();
-    }
-
-    public static void testGreyScale(){
-	Picture swan = new Picture("swan.jpg");
-	swan.greyScale();
-	swan.explore();
-    }
-
-    public static void exploreWater(){
-	Picture water =  new Picture("water.jpg");
-	water.explore();
-    }
-
-     public static void testFixUnderWater(){
-	Picture water =  new Picture("water.jpg");
-	water.fixUnderWater();
-	water.explore();
-    }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -86,12 +58,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-      // testZeroBlue();
-      //testKeepOnlyBlue();
-      // testNegate();
-      //  testGreyScale();
-      exploreWater();
-      testFixUnderWater();
+    testZeroBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
