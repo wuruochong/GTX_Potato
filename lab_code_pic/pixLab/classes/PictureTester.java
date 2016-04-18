@@ -78,6 +78,8 @@ public class PictureTester
     {
 	Picture temple = new Picture("seagull.jpg");
 	temple.explore();
+	temple.mirrorGull();
+	temple.explore();
     }
 
     /** Method to test the collage method */
@@ -153,7 +155,7 @@ public class PictureTester
 	//testMirrorHorizontal();
 	//testMirrorHorizontalBotToTop();
 	//testMirrorTemple();
-	testMirrorArms();
+	//testMirrorArms();
 	testMirrorGull();
 	//testMirrorDiagonal();
 	//testCollage();
@@ -168,4 +170,3 @@ public class PictureTester
 	//testGetAverageForColumn(0);
     }
 }
->>>>>>> a81d3dfe9612223ca0c15cc82932a9bcf9e57eb7
